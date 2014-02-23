@@ -2,6 +2,11 @@ Jessie Chapman
 Comp23, Lab 3 - The Battle for Ram Aras
 Date: 2/22/2014
 
+Note: I used the Lasers-group.y and multisteaks game as references
+for building my two modules; I found there was a lot of overlap
+between the Laser.py I wrote and Lasers-group.py, as they
+were functionally the same program.
+
 #########################################
 # What has been correctly implemented   #
 #########################################
