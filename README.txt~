@@ -1,3 +1,28 @@
+<<<<<<< HEAD
 Jessie Chapman
 Comp23, Lab 3 - The Battle for Ram Aras
 Date: 2/22/2014
+=======
+***What has been correctly implemented:
+
+ip_addresses.py: Since this program prints out every possible IP address
+		 (4 3-digit numbers separated by a . with each number
+		 in the range [0, 255] inclusive), it has been implemented
+		 correctly.
+reverselist.py: I hard-coded a simple list in the program itself,
+		and just used the .reverse() python function to
+		reverse the list. It prints out in reverse order
+		as expected.
+word_count.py: This prints out every unique word in a given input file,	
+	       with its corresponding frequency in the file itself,
+	       and the total number of words in the original file
+	       (including the multiples of a unique word).
+
+
+***I don't believe I implemented anything incorrectly.
+
+
+***Collaborated with Jared Bronen
+
+***I spent approximately 2 hours completing Lab 2
+>>>>>>> 7a4f8240280980c14b7256f54b7771134be59ec6
