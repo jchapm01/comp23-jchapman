@@ -10,9 +10,9 @@ from random import randint
 # constants
 SCREEN_WIDTH, SCREEN_HEIGHT = (800, 600)
 X_POS = 550
-X_SPEED = 3
-Y_SPEED = -3
-FPS = 50
+X_SPEED = 8
+Y_SPEED = -8
+FPS = 60
 BACKGROUND_COLOR = (0, 0, 0)
 
 class Laser(pygame.sprite.Sprite):
@@ -26,6 +26,7 @@ class Laser(pygame.sprite.Sprite):
             raise SystemExit, message
         return image.convert_alpha()
 
+
     def __init__(self, x, y, x_speed, y_speed):
         pygame.sprite.Sprite.__init__(self)
 
@@ -35,6 +36,7 @@ class Laser(pygame.sprite.Sprite):
         self.dx = x_speed
         self.dy = y_speed
         self.active = True
+
         # Make a bounding box from the sprite
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -63,7 +65,7 @@ if __name__ == "__main__":
         pygame.quit()
         sys.exit(0)
 
-        # Initialize the pygame modules to prep for the game
+    # Initialize the pygame modules to prep for the game
     pygame.init()
 
 ############################################

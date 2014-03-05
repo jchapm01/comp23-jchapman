@@ -1,14 +1,13 @@
 # Jessie Chapman
-# Battlecruiser.py - Move the battlecruiser around the screen
-#                    and shoot lasers with the space bar
-# Date: 2/22/2014
+# Enemy.py
+# Date: 2/
 
 import pygame, os, sys, random
 from Laser import *
 from pygame.locals import *
 
 ##################################################
-# Battlecruiser sprite                           #
+# Enemy sprite                                   #
 ##################################################
 
 # constants
@@ -27,14 +26,6 @@ class Battlecruiser(pygame.sprite.Sprite):
             raise SystemExit, messge
         return image.convert_alpha()
 
-    def load_sound(self, sound_name):
-        try:
-            sound = pygame.mixer.Sound(sound_name)
-        except pygame.error, message:
-            print "Cannot load sound: " + sound_name
-            raise SystemExit, message
-        return sound
-
     def __init__(self, screen, x, y, x_speed, y_speed):
         '''Initial conditions for the Battlecruiser'''
         pygame.sprite.Sprite.__init__(self)
@@ -47,30 +38,21 @@ class Battlecruiser(pygame.sprite.Sprite):
         self.dy = y_speed
         self.active = True
         self.lasers = pygame.sprite.Group()
-
         # Make a bounding box from the sprite
         self.rect = self.image.get_rect()
         self.image_width, self.image_height = self.image.get_size()
-
         # Put bounding box in the same place as the sprite
         self.rect.move(self.x, self.y)
         self.rect.topleft = (self.x, self.y)
         self.rect.bottomright = (self.x + self.image_width, self.y + self.image_height)
         
-    def draw(self, bground_img):
+    def draw(self):
         '''Method to put the sprite on the screen'''
-        self.screen.blit(bground_img, (0,0)) 
+        screen.blit(bground_img, (0,0)) # clear the screen
         self.screen.blit(self.image, (self.x, self.y))
 
     def fire(self):
-        self.lasers.add(Laser(self.x + self.image_width/2, self.y, 0, -6))
-        fired_sound = self.load_sound("laser.wav")
-        fired_sound.play()
-
-    def explode(self):
-        death_sound = self.load_sound("death_explode.wav")
-        death_sound.play()
-        self.active = False
+        self.lasers.add(Laser(self.x + self.image_width/2, self.y, 0, -3))
 
     def update(self, direc):
         '''Update the sprite's position on the screen based'''

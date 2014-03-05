@@ -1,78 +1,24 @@
 Jessie Chapman
-<<<<<<< HEAD
-Comp23, Lab 3 - The Battle for Ram Aras
-Date: 2/22/2014
+Lab 4 - The Battle for Ram Aras, Part II
+Date: 3/4/2014
 
-Note: I used the Lasers-group.y and multisteaks game as references
-for building my two modules; I found there was a lot of overlap
-between the Laser.py I wrote and Lasers-group.py, as they
-were functionally the same program.
+Implementation:
+	I believe I implemented everything correctly except the sidescrolling.
+Because I pass in my background image to my battlecruiser and laser
+objects, and due to time constraints, I was unable to implement
+the sidescrolling background (like in Background.py in the sidescrolling
+folder, in your examples) correctly in time for submission.
+	Other than this, running python Enemy.py has all 10
+sprites bouncing off of the walls on a white background, and game.py
+is a playable version of the Battle for Ram Aras with the correct
+sounds played and the gifs of the enemies change when a laser hits them.
+Also, I implemented a Game Loop and an End of Game Loop to ensure that
+when the game is over, a end-game screen is visible and no more
+updates, drawing/rendering, or collision detection happens for
+the sprites.
 
-#########################################
-# What has been correctly implemented   #
-#########################################
+Collaboration:
+Worked with Jared Bronen
 
-I believe I have implemented everything in both
-Laser.py and Battlecruiser.py correctly.
-The Battlecruiser only shoots out one laser per
-space bar press, and that laser continues up the
-screen until it "dies." 
-
-The only thing I am unsure of (though everything
-works correctly from the user's/player's perspective)
-is I don't update my background image within the game
-loop - I update it (using screen.blit()) within the
-Battlecruiser and Laser update() functions. From a
-game programming perspective I'm not sure if this
-is the right way to go about it.
-
-####################
-# Collaboration    #
-####################
-
-Jared Bronen helped me with the idea of having a
-.fire() method for the Battlecruiser, because 
-my original implementation had a constant
-stream of lasers shoot out every time the
-user pressed the space bar, instead of just
-a single laser being shot. It turns out I was just
-assigning the pressed variable the value "SPACE"
-instead of just adding a laser immediately after
-the key event for K_SPACE was received, and
-within my Battlecruiser's update() function
-I was adding a laser to the group - so the game
-loop updated the laser group out of order and
-therefore showed a constant stream of lasers until
-the next key press. 
-
-########################
-# Approx. hours spent  #
-########################
-4 hours
-=======
-Comp23 Lab 2 README
-2/20/2014
-
-***What has been correctly implemented:
-
-ip_addresses.py: Since this program prints out every possible IP address
-		 (4 3-digit numbers separated by a . with each number
-		 in the range [0, 255] inclusive), it has been implemented
-		 correctly.
-reverselist.py: I hard-coded a simple list in the program itself,
-		and just used the .reverse() python function to
-		reverse the list. It prints out in reverse order
-		as expected.
-word_count.py: This prints out every unique word in a given input file,	
-	       with its corresponding frequency in the file itself,
-	       and the total number of words in the original file
-	       (including the multiples of a unique word).
-
-
-***I don't believe I implemented anything incorrectly.
-
-
-***Collaborated with Jared Bronen
-
-***I spent approximately 2 hours completing Lab 2
->>>>>>> 7a4f8240280980c14b7256f54b7771134be59ec6
+Appox. Hours spent:
+5
