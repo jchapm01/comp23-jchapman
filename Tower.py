@@ -42,14 +42,16 @@ class Tower(pygame.sprite.Sprite):
         # increase the bounding box 1.5 times its orig size
         self.rect.w = self.image_w * 1.5
         self.rect.h = self.image_h * 1.5
+
         # Fix self.rect.x and self.rect.y to correspond 
-        # to bounding box's top left x, y:
-        #self.rect.x = self.y - ( (self.rect.h - self.image_h) / 2)
-        #self.rect.x = self.x - ( (self.rect.w - self.image_w) / 2)
-        # Update the (x, y) position vars for box and sprite:
-        #self.rect.pos = self.rect.x, self.rect.y
-        #self.pos = self.rect.pos
-        #self.x, self.y = self.pos
+        # to new bounding box's top left x, y:
+        self.rect.x = self.y - ( (self.rect.h - self.image_h) / 2)
+        self.rect.x = self.x - ( (self.rect.w - self.image_w) / 2)
+
+        # Update the (x, y) position vars for both box and sprite:
+        self.rect.pos = self.rect.x, self.rect.y
+        self.pos = self.rect.pos
+        self.x, self.y = self.pos
 
         # Put bounding box in the same place as the sprite
         self.rect.move(self.x, self.y)
@@ -59,12 +61,12 @@ class Tower(pygame.sprite.Sprite):
 
 
     def draw(self):
-        '''Method to put the sprite on the screen'''
+        '''Method to draw Tower sprite at the mouse position'''
         self.draw_pos = self.image.get_rect().move(self.x - self.image_w/2, self.y - self.image_h/2)
         self.screen.blit(self.image, self.draw_pos)
 
 
-# leftover from Enemy.py:
+# leftover from Enemy.py, delete when finished:
 if __name__ == "__main__":            
 
     #constants
