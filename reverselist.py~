@@ -1,7 +1,0 @@
-# reverselist.py = prints a list in reverse order                               
-
-list = ["apple", "banana", "carrot", "donkey kong"]
-list.reverse()
-for i, j in enumerate(list):
-        print j
-
