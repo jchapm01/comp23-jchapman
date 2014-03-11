@@ -43,29 +43,17 @@ class Enemy(pygame.sprite.Sprite):
                 self.active = True
                                 
         def update(self):
-                ''' Move the Enemy '''
-                if ((self.x + self.dx) <= 5):
-                        self.dx = self.dx * -1
-                if ((self.x + self.dx) >= self.screen.get_size()[0]):
-                        self.dx = self.dx * -1
-                if ((self.y + self.dy) <= 5):
-                        self.dy = self.dy * -1
-                if ((self.y + self.dy) >= self.screen.get_size()[1]):
-                        self.dy = self.dy * -1
-                self.x += self.dx
-                self.y += self.dy
+                ''' Move the laser '''
                 self.rect.y += self.dy
-                self.rect.x += self.dx
+                self.y += self.dy
                 self.rect.move(self.rect.x, self.rect.y)
+                
+                # Remove sprite from group if it goes off the screen...
+                if self.rect.y <= 0:
+                        active  = False
+                        self.kill() # see http://pygame.org/docs/ref/sprite.html#Sprite.kill
 
 
-        def is_shot(self):
-                '''actions if muta is shot by laser'''
-                self.active = False
-                draw_pos = self.image.get_rect().move(self.x - self.image_w / 2, self.y - self.image_h / 2)
-                self.image = self.load_image('assets/laser_explosion.gif')
-                self.screen.blit(self.image, draw_pos)
-                self.kill()
 
 
         def draw(self):
@@ -96,7 +84,7 @@ if __name__ == "__main__":
         muta = pygame.sprite.Group()
 
         for i in xrange(0,10):
-                muta.add(Enemy(screen, randint(1, SCREEN_WIDTH), 50, randint(1, 10), randint(1, 10)))
+                muta.add(Enemy(screen, 0, 0, randint(1, 10), randint(1, 10)))
 
         # Game loop
         while True:
