@@ -20,7 +20,7 @@ class Enemy(pygame.sprite.Sprite):
                 pygame.sprite.Sprite.__init__(self) #call Sprite intializer
                 
                 # Load the image
-                self.image = self.load_image('assets/mutalisk.gif')
+                self.image = self.load_image('assets/comp11-1.png')
 
                 # Create a moving collision box
                 self.rect = self.image.get_rect()
