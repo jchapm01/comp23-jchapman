@@ -25,7 +25,7 @@ class Tower(pygame.sprite.Sprite):
         '''Initial conditions for the Tower'''
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = self.load_image("TOWER SPRITE FILE")
+        self.image = self.load_image("assets/popcorn_turret.png")
         self.screen = screen
         self.pos = pos #passed in from pygame.mouse.get_pos() if event.type == MOUSEBUTTONDOWN
         self.x, self.y = self.pos
